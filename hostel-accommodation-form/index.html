@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FULafia | Hostel</title>
+    <link rel="stylesheet" href="formstyle.css">
+    <link rel="shortcut icon" href="images/fulafia.png">
+</head>
+<body>
+    <div class="container">
+        <form id="hostelForm">
+            <section class="header">
+                <img src="images/fulafia.png" alt="logo">
+                <h1>FEDERAL UNIVERSITY OF LAFIA</h1>
+                <p>P.M.B. 146 LAFIA, NASARAWA STATE</p>
+                <br>
+                <h2>STUDENT AFFAIRS DIVISION</h2>
+                <p>Hostel Accommodation Form<p>
+            </section>
+    
+            <hr>
+
+            <!-- Personal Information Section -->
+            <div class="section">
+                <h3>Personal Information</h3>
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="matricNumber">Matriculation Number:</label>
+                <input type="text" id="matricNumber" name="matricNumber" required>
+
+                <label for="faculty">Faculty:</label>
+                <input type="text" id="faculty" name="faculty" required>
+
+                <label for="department">Department:</label>
+                <input type="text" id="department" name="department" required>
+
+                <label for="level">Level:</label>
+                <select id="level" name="level" required>
+                        <option value="">-select-</option>
+                        <option value="100">100L</option>
+                        <option value="100">200L</option>
+                        <option value="100">300L</option>
+                        <option value="100">400L</option>
+                        <option value="100">500L</option>
+                </select>
+
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="">-select-</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+
+                <label for="nationality">Nationality:</label>
+                <select id="nationality" name="nationality" required>
+                    <option value="">-select-</option>
+                    <option value="Nigerian">Nigerian</option>
+                    <option value="Others">Others</option>
+                </select>
+
+                <label for="physicallyChallenged">Physically challenged?</label>
+                <select id="physicallyChallenged" name="physicallyChallenged" onchange="toggleDetails()" required>
+                    <option value="">-select-</option>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+
+                <div id="challengeDetails" style="display: none; margin-top: 10px;">
+                    <label for="challengeDescription">Please specify details:</label>
+                    <textarea id="challengeDescription" name="challengeDescription" rows="1"></textarea>
+                </div>
+
+            </div>
+
+            <!-- Contact Information Section -->
+            <div class="section">
+                <h3>Contact Information</h3>
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="address">Home Address:</label>
+                <textarea id="address" name="address" rows="2" required></textarea>
+            </div>
+
+            <!-- Hostel type -->
+            <div class="section">
+                <h3>Accommodation Preference</h3>
+
+                <label for="hostelType">Preferred Hostel:</label>
+                <select id="hostelType" name="hostelType" required>
+                    <option value="">Select</option>
+                    <option value="single">Male Hostel</option>
+                    <option value="double">Female Hostel I</option>
+                    <option value="quad">Female Hostel II</option>
+                    <option value="double">Female Hostel (TETFUND) I</option>
+                    <option value="double">Female Hostel (TETFUND) II</option>
+                </select>
+            </div>
+
+            <!-- Guardian -->
+            <div class="section">
+                <h3>Guardian Information</h3>
+                <label for="guardianName">Guardian's Name:</label>
+                <input type="text" id="guardianName" name="guardianName" required>
+
+                <label for="guardianPhone">Guardian's Phone Number:</label>
+                <input type="tel" id="guardianPhone" name="guardianPhone" required>
+            </div>
+
+            <!-- Passport -->
+            <div class="section">
+                <h3>Passport Upload</h3>
+                <label for="passport">Upload Passport:</label>
+                <input type="file" id="passport" name="passport" accept="image/*" onchange="previewImage(event)" required>
+                <img id="passportPreview" src="" alt="Passport Preview" style="display:none;">
+            </div>
+
+            <div class="section">
+                <h3>Note:</h3>
+                <ol>
+                    <li>Students should only proceed to pay accommodation fee after they have been shortlisted by the division.</li>
+                    <li>Allocated bed spaces are non-transferable.</li>
+                    <li>Photocopies of receipt of payment for accommodation form, school fees and admission letter should be attached to this form on submission.</li>
+                    <li>The University reserves the right to retrieve room allocation without refund from a student who violates the rules and regulations governing student's residency in the Hostel. </li>
+                </ol>
+                
+            </div>
+
+            <div class="section">
+                <h3>Attestation</h3>
+                <p>
+                    Considering the challenges regarding power supply in the country and Nasarawa State in particular, the University
+                    management may not be able to provide sustainable power supply for students in the Hostel.
+                    <br>
+                    In view of the above, you agree not to revolt if there is power outage.
+                </p>
+                <input type="checkbox" id="agree" name="agree" required>
+                <label for="agree">I agree.</label>
+            </div>
+
+            <!-- Submit -->
+            <button type="button" onclick="submitForm()">Submit</button>
+        </form>
+    </div>
+
+    <!-- confirm and print Section -->
+    <div id="confirmation" style="display:none;">
+        <div id="confirmationContent">
+            <!-- form data will show here after submission -->
+        </div>
+        <button onclick="window.print()">Print Confirmation</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
